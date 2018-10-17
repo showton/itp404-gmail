@@ -1,0 +1,57 @@
+<style media="screen">
+.container {
+  width: 50%;
+  float: left;
+  margin-left: 5%;
+  margin-right: 5%;
+  background-color: ghostWhite;
+  padding: 0 2% 2% 2%;
+}
+button {
+  border: none;
+  background-color: inherit;
+  font-size: inherit;
+  background-color: #48cfad;
+  color: white;
+  padding: 0.75em;
+}
+
+.divvy {
+  float: left;
+  margin-top: 1.5%;
+}
+
+.subjecty {
+  color: #656d78;
+  margin-bottom: 2%;
+}
+
+.messagey {
+  color: #656d78;
+}
+</style>
+
+<div class="container">
+  <form onsubmit={{action "composeEmail"}}>
+    <h3>New Message</h3>
+    <div class="subjecty">
+      To: {{input type="text" id="to" value=to}}
+    </div>
+    <div class="subjecty">
+      From: {{input type="text" id="from" value=from}}
+    </div>
+    <div class="subjecty">
+      Subject: {{input type="text" id="subject" value=subject}}
+    </div>
+
+    <div>
+      <div class="messagey">
+        Message: {{textarea rows="12" cols="100" value=message}}
+      </div>
+    </div>
+
+    <div class="divvy">
+      <button type="submit"><h5 style="margin: 0;">Publish</h5></button>
+    </div>
+  </form>
+</div>

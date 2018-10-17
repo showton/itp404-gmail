@@ -1,0 +1,89 @@
+<style media="screen">
+  .content {
+    width: 83%;
+    float: right;
+    margin-left: 2%;
+  }
+
+  .topnav {
+    background-color: #f9f9f9;
+    padding: 0;
+    margin: 0;
+    margin-bottom: 3%;
+    clear: both;
+    float: left;
+    top: 0;
+    width: 100%;
+  }
+
+  ul.classy {
+    clear: both;
+    margin: inherit;
+    padding: inherit;
+  }
+
+  li.listy {
+    list-style-type: none;
+    display: inline;
+    float: left;
+    margin-left: 3%;
+  }
+
+  button {
+    border: none;
+    background-color: inherit;
+    font-size: inherit;
+    margin-left: 3em;
+    color: #fc6e51;
+    padding: 0;
+  }
+
+  .emails {
+    width: 85%;
+    clear: both;
+    padding: 0.5% 2%;
+    background-color: #f5f7fa;
+  }
+
+  #icon {
+    margin-right: 15%;
+  }
+
+
+  .mamadiv {
+    width: 100%;
+    display: inline-flex;
+    align-items: center;
+  }
+</style>
+
+<div class="content">
+  <div class="topnav">
+    <nav>
+      <ul class="classy">
+        <li class="listy">
+          {{#link-to "index"}}
+            <h3>Back</h3>
+          {{/link-to}}
+        </li>
+        <li class="listy">
+          <button type="button" onclick={{action "deleteEmail" model}}>
+            <!-- / represents public -->
+          <div class="mamadiv">
+            <div id="icon">
+              <img src="/img/trashicon.svg" width="15">
+            </div>
+              <h3>Delete</h3>
+          </div>
+          </button>
+        </li>
+      </ul>
+    </nav>
+  </div>
+  <div class="emails">
+    <h3>{{model.subject}}</h3>
+    <p style="margin-bottom: 0;"><b>{{model.from}}</b></p>
+    <p style="margin-top: 0; color: #656d78;">{{model.to}}</p>
+    <p>{{model.message}}</p>
+  </div>
+</div>

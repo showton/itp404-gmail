@@ -1,5 +1,29 @@
-{{!-- The following component displays Ember's default welcome message. --}}
-{{welcome-page}}
-{{!-- Feel free to remove this! --}}
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Montserrat|Open+Sans" rel="stylesheet">
+</head>
 
+<nav class="navbar">
+  <ul>
+    <li id="tabs">
+      {{#link-to "create"}}
+        <h3 style="color: #656d78;">+ Compose</h3>
+      {{/link-to}}
+    </li>
+    <li id="tabs">
+      {{#link-to "index"}}
+        <h3>Home</h3>
+      {{/link-to}}
+    </li>
+    <li id="tabs">
+      {{#link-to "sent"}}
+        <h3 style="color: #48cfad;">Sent</h3>
+      {{/link-to}}
+    </li>
+    <li id="tabs">
+      {{#link-to "trash"}}
+        <h3 style="color: #fc6e51;">Trash</h3>
+      {{/link-to}}
+    </li>
+  </ul>
+</nav>
 {{outlet}}
