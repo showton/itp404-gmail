@@ -1,0 +1,7 @@
+<button id="starButton" type="button" onclick={{action 'star'}}>
+  {{#if @starred}}
+    <img class="starResize" src="/img/starred.png">
+  {{else}}
+    <img class="starResize" src="/img/unstarred.png">
+  {{/if}}
+</button>

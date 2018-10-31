@@ -1,0 +1,8 @@
+{{#link-to "email" email.id}}
+  <div class="emailFrom">
+    <b>{{email.from}}</b>
+  </div>
+  <div class="emails">
+      {{truncate-text email.subject}}
+  </div>
+{{/link-to}}

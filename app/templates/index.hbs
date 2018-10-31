@@ -3,25 +3,13 @@
     width: 100%;
   }
 
-  .truncate {
+  /* .truncate {
     width: 250px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-  }
-  .emails {
-    width: 65%;
-    float: right;
-    color: #aab2bd;
-  }
+  } */
 
-  .content {
-    width: 85%;
-    float: left;
-    list-style-type: none;
-    margin-left: 2%;
-    color: white;
-  }
 
   #elements {
     padding: 2%;
@@ -35,18 +23,40 @@
 <div class="container">
   <ul>
     <div class="content">
+      <nav class="starred-navbar">
+        <li>
+          <h3 style="padding: 2%; margin-top: 0;">Starred</h3>
+        </li>
+      </nav>
       {{#each model as |email|}}
         <li id="elements">
-          {{#link-to "email" email.id}}
-            <div style="width: 20%; float: left;">
+          <div class="star">
+            <StarButton @starred={{email.starred}} @onClick={{action "star" email}} />
+          </div>
+          <div class="starredEmails">
+            {{#each model as |email|}}
+              {{#if email.starred}}
+                <SingleEmail @email={{email}}/>
+              {{/if}}
+            {{/each}}
+          </div>
+          <div class="unstarredEmails">
+            {{#each model as |email|}}
+              {{#unless email.starred}}
+                <SingleEmail @email={{email}}/>
+              {{/unless}}
+            {{/each}}
+          </div>
+
+
+          <!-- {{#link-to "email" email.id}}
+            <div class="emailFrom">
               <b>{{email.from}}</b>
             </div>
             <div class="emails">
-              <div class="truncate">
-                {{email.subject}}
-              </div>
+                {{truncate-text email.subject}}
             </div>
-          {{/link-to}}
+          {{/link-to}} -->
         </li>
       {{/each}}
     </div>

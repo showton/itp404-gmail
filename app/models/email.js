@@ -5,5 +5,6 @@ export default DS.Model.extend({
   message: DS.attr("string"),
   email: DS.attr("string"),
   to: DS.attr("string"),
-  subject: DS.attr("string")
+  subject: DS.attr("string"),
+  starred: DS.attr("boolean")
 });

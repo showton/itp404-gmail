@@ -18,5 +18,8 @@ export default Factory.extend({
   },
   to() {
     return faker.internet.userName();
+  },
+  starred() {
+    return false;
   }
 });

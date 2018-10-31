@@ -32,3 +32,45 @@ li a {
 li a:hover {
   color: black;
 }
+
+.star {
+  width: 5%;
+  float: left;
+  vertical-align: text-top;
+  margin-right: 5%;
+}
+
+.emailFrom {
+  width: 20%;
+  float: left;
+  margin-right: 15%;
+}
+
+.emailSubject {
+  width: 80%;
+  float: right;
+  color: #aab2bd;
+}
+
+.starResize {
+  width: 75%;
+}
+
+#starButton {
+  border: none;
+  background-color: inherit;
+}
+
+.starred-navbar {
+  width: 100%;
+  background-color: #f9f9f9;
+  color: black;
+}
+
+.content {
+  width: 85%;
+  float: left;
+  list-style-type: none;
+  margin-left: 2%;
+  /* color: white; */
+}
