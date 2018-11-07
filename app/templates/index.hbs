@@ -1,7 +1,5 @@
 <style media="screen">
-  .container: {
-    width: 100%;
-  }
+
 
   /* .truncate {
     width: 250px;
@@ -20,44 +18,50 @@
   }
 
   .starredEmails {
-    z-index: 0;
-    top: 0;
+    list-style-type: none;
+
   }
 
   .unstarredEmails {
-    z-index: 1;
+  }
+
+  ul {
+    list-style: none;
+    float: right;
+    background-color: ghostWhite;
+    width: 85%;
+    z-index: 0;
+  }
+
+  li {
   }
 </style>
 
 <div class="container">
-  <ul>
-    <div class="content">
-      <!-- <nav class="starred-navbar">
-        <li>
-          <h3 style="padding: 2%; margin-top: 0;">Starred</h3>
-        </li>
-      </nav> -->
-      {{#each model as |email|}}
-        <li id="elements">
-          <div class="star">
-            <StarButton @starred={{email.starred}} @onClick={{action "star" email}} />
-          </div>
 
-          <div class="starredEmails">
+  <div class="content">
+    <div class="starredEmails">
+      <ul>
+        <h3>Starred</h3>
+          {{#each model as |email|}}
             {{#if email.starred}}
-              <SingleEmail @email={{email}} />
+              <SingleEmail @email={{email}} @star={{action "star" email}} />
             {{/if}}
-          </div>
-
-          <div class="unstarredEmails">
-            {{#unless email.starred}}
-              <SingleEmail @email={{email}} />
-            {{/unless}}
-          </div>
-        </li>
-      {{/each}}
+          {{/each}}
+      </ul>
     </div>
-  </ul>
+
+    <div class="unstarredEmails">
+      <ul>
+          {{#each model as |email|}}
+            {{#unless email.starred}}
+              <SingleEmail @email={{email}} @star={{action "star" email}} />
+            {{/unless}}
+          {{/each}}
+      </ul>
+    </div>
+  </div>
+
 
 
 </div>

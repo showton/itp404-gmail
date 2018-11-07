@@ -1,8 +1,14 @@
-{{#link-to "email" email.id}}
-  <div class="emailFrom">
-    <b>{{email.from}}</b>
+<div class="singleEmailStyle">
+  <div class="star">
+    <StarButton @starred={{email.starred}} @onClick={{star}} />
   </div>
-  <div class="emails">
-      {{truncate-text email.subject}}
-  </div>
-{{/link-to}}
+
+  {{#link-to "email" email.id}}
+    <div class="emailFrom">
+      <b>{{email.from}}</b>
+    </div>
+    <div class="emails">
+        {{truncate-text email.subject}}
+    </div>
+  {{/link-to}}
+</div>
