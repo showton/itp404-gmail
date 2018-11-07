@@ -18,45 +18,42 @@
     background-color: ghostWhite;
     color: black;
   }
+
+  .starredEmails {
+    z-index: 0;
+    top: 0;
+  }
+
+  .unstarredEmails {
+    z-index: 1;
+  }
 </style>
 
 <div class="container">
   <ul>
     <div class="content">
-      <nav class="starred-navbar">
+      <!-- <nav class="starred-navbar">
         <li>
           <h3 style="padding: 2%; margin-top: 0;">Starred</h3>
         </li>
-      </nav>
+      </nav> -->
       {{#each model as |email|}}
         <li id="elements">
           <div class="star">
             <StarButton @starred={{email.starred}} @onClick={{action "star" email}} />
           </div>
+
           <div class="starredEmails">
-            {{#each model as |email|}}
-              {{#if email.starred}}
-                <SingleEmail @email={{email}}/>
-              {{/if}}
-            {{/each}}
+            {{#if email.starred}}
+              <SingleEmail @email={{email}} />
+            {{/if}}
           </div>
+
           <div class="unstarredEmails">
-            {{#each model as |email|}}
-              {{#unless email.starred}}
-                <SingleEmail @email={{email}}/>
-              {{/unless}}
-            {{/each}}
+            {{#unless email.starred}}
+              <SingleEmail @email={{email}} />
+            {{/unless}}
           </div>
-
-
-          <!-- {{#link-to "email" email.id}}
-            <div class="emailFrom">
-              <b>{{email.from}}</b>
-            </div>
-            <div class="emails">
-                {{truncate-text email.subject}}
-            </div>
-          {{/link-to}} -->
         </li>
       {{/each}}
     </div>
