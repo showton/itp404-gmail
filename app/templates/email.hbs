@@ -43,6 +43,7 @@
     clear: both;
     padding: 0.5% 2%;
     background-color: #f5f7fa;
+    top: 0;
   }
 
   #icon {
@@ -67,7 +68,7 @@
           {{/link-to}}
         </li>
         <li class="listy">
-          <button type="button" onclick={{action "deleteEmail" model}}>
+          <button type="button" onclick={{action "deleteEmail" model}} data-test="delete-email">
             <!-- / represents public -->
           <div class="mamadiv">
             <div id="icon">
@@ -81,9 +82,9 @@
     </nav>
   </div>
   <div class="emails">
-    <h3>{{model.subject}}</h3>
-    <p style="margin-bottom: 0;"><b>{{model.from}}</b></p>
-    <p style="margin-top: 0; color: #656d78;">{{model.to}}</p>
-    <p>{{model.message}}</p>
+    <h3 data-test="email-subject">{{model.subject}} </h3>
+    <p style="margin-bottom: 0;" data-test="email-from"><b>{{model.from}}</b></p>
+    <p style="margin-top: 0; color: #656d78;" data-test="email-to">{{model.to}}</p>
+    <p data-test="email-message">{{model.message}}</p>
   </div>
 </div>

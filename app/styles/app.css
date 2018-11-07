@@ -33,6 +33,13 @@ li a:hover {
   color: black;
 }
 
+#test {
+  list-style: none;
+  float: right;
+  background-color: ghostWhite;
+  width: 100%;
+}
+
 .star {
   width: 5%;
   float: left;
@@ -67,9 +74,8 @@ li a:hover {
   color: black;
 }
 
-.container: {
+.container {
   width: 100%;
-  display: flex;
 }
 
 .content {
@@ -78,7 +84,6 @@ li a:hover {
   list-style-type: none;
   margin-left: 2%;
   float: right;
-  /* color: white; */
 }
 
 .singleEmailStyle {

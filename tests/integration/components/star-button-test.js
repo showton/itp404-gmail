@@ -1,26 +1,28 @@
-import { module, test } from 'qunit';
-import { setupRenderingTest } from 'ember-qunit';
-import { render } from '@ember/test-helpers';
-import hbs from 'htmlbars-inline-precompile';
+import { module, test } from "qunit";
+import { setupRenderingTest } from "ember-qunit";
+import { render } from "@ember/test-helpers";
+import hbs from "htmlbars-inline-precompile";
 
-module('Integration | Component | star-button', function(hooks) {
+module("Integration | Component | star-button", function(hooks) {
   setupRenderingTest(hooks);
 
-  test('it renders', async function(assert) {
-    // Set any properties with this.set('myProperty', 'value');
-    // Handle any actions with this.set('myAction', function(val) { ... });
+  test("star filled", async function(assert) {
+    this.set("starFilled", true);
 
-    await render(hbs`{{star-button}}`);
-
-    assert.equal(this.element.textContent.trim(), '');
-
-    // Template block usage:
     await render(hbs`
-      {{#star-button}}
-        template block text
-      {{/star-button}}
+      <StarButton @starred={{starFilled}}/>
     `);
 
-    assert.equal(this.element.textContent.trim(), 'template block text');
+    assert.dom("img").hasAttribute("src", "/img/starred.png");
+  });
+
+  test("star not filled", async function(assert) {
+    this.set("starFilled", false);
+
+    await render(hbs`
+      <StarButton @starred={{starFilled}}/>
+    `);
+
+    assert.dom("img").hasAttribute("src", "/img/unstarred.png");
   });
 });

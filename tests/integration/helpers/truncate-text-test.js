@@ -17,9 +17,18 @@ module("Integration | Helper | truncate-text", function(hooks) {
   });
 
   test("truncated characters", async function(assert) {
-    this.set("length", "25");
-    await render(hbs`{{truncate-text length data-test="characters"}}`);
+    this.set("text", "random text");
+    this.set("length", 2);
+    await render(hbs`{{truncate-text text length}}`);
 
-    assert.dom('[data-test="characters"]').length(25);
+    assert.equal(this.element.textContent.trim(), "ra...");
+  });
+
+  test("not truncated if short", async function(assert) {
+    this.set("text", "random text");
+    this.set("length", 30);
+    await render(hbs`{{truncate-text text length}}`);
+
+    assert.equal(this.element.textContent.trim(), "random text");
   });
 });

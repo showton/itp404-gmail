@@ -25,37 +25,28 @@
   .unstarredEmails {
   }
 
-  ul {
-    list-style: none;
-    float: right;
-    background-color: ghostWhite;
-    width: 85%;
-    z-index: 0;
-  }
 
-  li {
-  }
 </style>
 
 <div class="container">
 
   <div class="content">
     <div class="starredEmails">
-      <ul>
+      <ul id="test">
         <h3>Starred</h3>
           {{#each model as |email|}}
             {{#if email.starred}}
-              <SingleEmail @email={{email}} @star={{action "star" email}} />
+              <SingleEmail @email={{email}} @star={{action "star" email}} data-test="star-email" />
             {{/if}}
           {{/each}}
       </ul>
     </div>
 
     <div class="unstarredEmails">
-      <ul>
+      <ul id="test">
           {{#each model as |email|}}
             {{#unless email.starred}}
-              <SingleEmail @email={{email}} @star={{action "star" email}} />
+              <SingleEmail @email={{email}} @star={{action "star" email}} data-test="unstar-email" />
             {{/unless}}
           {{/each}}
       </ul>

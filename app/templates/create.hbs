@@ -32,26 +32,26 @@ button {
 </style>
 
 <div class="container">
-  <form onsubmit={{action "composeEmail"}}>
+  <form onsubmit={{action "composeEmail"}} data-test="create-email">
     <h3>New Message</h3>
     <div class="subjecty">
-      To: {{input type="text" id="to" value=to}}
+      <p id="to">To: {{input type="text" id="to" value=to}}</p>
     </div>
     <div class="subjecty">
-      From: {{input type="text" id="from" value=from}}
+      <p id="from">From: {{input type="text" id="from" value=from}}</p>
     </div>
     <div class="subjecty">
-      Subject: {{input type="text" id="subject" value=subject}}
+      <p id="subject">Subject: {{input type="text" id="subject" value=subject}}</p>
     </div>
 
     <div>
       <div class="messagey">
-        Message: {{textarea rows="12" cols="100" value=message}}
+        <p id="message">Message: {{textarea rows="12" cols="100" value=message}}</p>
       </div>
     </div>
 
     <div class="divvy">
-      <button type="submit"><h5 style="margin: 0;">Publish</h5></button>
+      <button type="submit" data-test="publish-email"><h5 style="margin: 0;">Publish</h5></button>
     </div>
   </form>
 </div>
