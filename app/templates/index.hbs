@@ -1,6 +1,4 @@
 <style media="screen">
-
-
   /* .truncate {
     width: 250px;
     white-space: nowrap;
@@ -22,10 +20,7 @@
 
   }
 
-  .unstarredEmails {
-  }
-
-
+  .unstarredEmails {}
 </style>
 
 <div class="container">
@@ -34,21 +29,21 @@
     <div class="starredEmails">
       <ul id="test">
         <h3>Starred</h3>
-          {{#each model as |email|}}
-            {{#if email.starred}}
-              <SingleEmail @email={{email}} @star={{action "star" email}} data-test="star-email" />
-            {{/if}}
-          {{/each}}
+        {{#each model as |email|}}
+          {{#if email.starred}}
+            <SingleEmail @email={{email}} @star={{action "star" email}} data-test="star-email" />
+          {{/if}}
+        {{/each}}
       </ul>
     </div>
 
     <div class="unstarredEmails">
       <ul id="test">
-          {{#each model as |email|}}
-            {{#unless email.starred}}
-              <SingleEmail @email={{email}} @star={{action "star" email}} data-test="unstar-email" />
-            {{/unless}}
-          {{/each}}
+        {{#each model as |email|}}
+          {{#unless email.starred}}
+            <SingleEmail @email={{email}} @star={{action "star" email}} data-test="unstar-email" />
+          {{/unless}}
+        {{/each}}
       </ul>
     </div>
   </div>

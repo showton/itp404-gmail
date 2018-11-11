@@ -24,16 +24,30 @@ module("Acceptance | emails", function(hooks) {
   // });
 
   test("testing starred/unstarred", async function(assert) {
-    server.create("email", { starred: true });
-    server.create("email", { starred: true });
-    server.create("email", { starred: false });
-    server.create("email", { starred: false });
-    server.create("email", { starred: false });
+    server.create("email", {
+      starred: true
+    });
+    server.create("email", {
+      starred: true
+    });
+    server.create("email", {
+      starred: false
+    });
+    server.create("email", {
+      starred: false
+    });
+    server.create("email", {
+      starred: false
+    });
 
     await visit("/");
 
-    assert.dom('[data-test="star-email"]').exists({ count: 2 });
-    assert.dom('[data-test="unstar-email"]').exists({ count: 3 });
+    assert.dom('[data-test="star-email"]').exists({
+      count: 2
+    });
+    assert.dom('[data-test="unstar-email"]').exists({
+      count: 3
+    });
   });
 
   test("viewing details of email", async function(assert) {
@@ -53,28 +67,40 @@ module("Acceptance | emails", function(hooks) {
   });
 
   test("testing trash", async function(assert) {
-    server.create("email", { starred: false });
-    server.create("email", { starred: false });
+    server.create("email", {
+      starred: false
+    });
+    server.create("email", {
+      starred: false
+    });
     window.confirm = () => true;
 
     await visit("/");
-    assert.dom('[data-test="unstar-email"]').exists({ count: 2 });
+    assert.dom('[data-test="unstar-email"]').exists({
+      count: 2
+    });
 
     await visit("/emails/1");
     await click('[data-test="delete-email"]');
     await visit("/");
-    assert.dom('[data-test="unstar-email"]').exists({ count: 1 });
+    assert.dom('[data-test="unstar-email"]').exists({
+      count: 1
+    });
 
     await visit("/emails/2");
     await click('[data-test="delete-email"]');
     await visit("/");
-    assert.dom('[data-test="unstar-email"]').exists({ count: 0 });
+    assert.dom('[data-test="unstar-email"]').exists({
+      count: 0
+    });
   });
 
   test("testing compose email", async function(assert) {
     // assert.dom('[data-test="create-email"]').exists({ count: 0 });
     await visit("/");
-    assert.dom('[data-test="unstar-email"]').exists({ count: 0 });
+    assert.dom('[data-test="unstar-email"]').exists({
+      count: 0
+    });
     await click("#composeEmailButton");
 
     // await visit("/emails/new");
@@ -88,7 +114,9 @@ module("Acceptance | emails", function(hooks) {
     await click('[data-test="publish-email"]');
 
     assert.equal(currentURL(), "/");
-    assert.dom('[data-test="unstar-email"]').exists({ count: 1 });
+    assert.dom('[data-test="unstar-email"]').exists({
+      count: 1
+    });
 
     // Test the server database
     // http://www.ember-cli-mirage.com/docs/v0.2.x/acceptance-testing/
