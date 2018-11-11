@@ -35,18 +35,18 @@ button {
   <form onsubmit={{action "composeEmail"}} data-test="create-email">
     <h3>New Message</h3>
     <div class="subjecty">
-      <p id="to">To: {{input type="text" id="to" value=to}}</p>
+      <p>To: {{input type="text" id="to" value=to}}</p>
     </div>
     <div class="subjecty">
-      <p id="from">From: {{input type="text" id="from" value=from}}</p>
+      <p>From: {{input type="text" id="from" value=from}}</p>
     </div>
     <div class="subjecty">
-      <p id="subject">Subject: {{input type="text" id="subject" value=subject}}</p>
+      <p>Subject: {{input type="text" id="subject" value=subject}}</p>
     </div>
 
     <div>
       <div class="messagey">
-        <p id="message">Message: {{textarea rows="12" cols="100" value=message}}</p>
+        <p>Message: {{textarea rows="12" cols="100" id="message" value=message}}</p>
       </div>
     </div>
 
